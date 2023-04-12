@@ -1,5 +1,6 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils/auth');
+const removePassword = require('../utils/removePasswordAttribute');
 
 const authenticate = async (email, password) => {
   const user = await User.findOne({
@@ -8,7 +9,9 @@ const authenticate = async (email, password) => {
 
   if (!user) throw new Error('Invalid fields');
 
-  const token = generateToken(user.dataValues);
+  const dataValues = removePassword(user.dataValues);
+
+  const token = generateToken(dataValues);
 
   return token;
 };
