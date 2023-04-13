@@ -13,13 +13,13 @@ const generateToken = (payload) => {
 };
 
 const validateToken = (token) => {
-  // if (!token) new Error('Missing token.');
+  if (!token) throw new Error('Token not found');
   const isValid = jwt.verify(token, secretKey);
   return isValid;
 };
 
 const decodeToken = (token) => {
-  // if (!token) new Error('Missing token.');
+  if (!token) throw new Error('Token not found');
   const decoded = jwt.decode(token, secretKey);
   return decoded;
 };
