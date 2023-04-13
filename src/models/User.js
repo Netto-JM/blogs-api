@@ -3,6 +3,8 @@ const UserSchema = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
     },
     displayName: DataTypes.STRING,
     email: DataTypes.STRING,
@@ -14,6 +16,13 @@ const UserSchema = (sequelize, DataTypes) => {
       underscored: true,
       timestamps: false,
     });
+
+  UserTable.associate = (model) => {
+    UserTable.hasMany(model.BlogPost, {
+      foreignKey: 'userId',
+      as: 'posts'
+    })
+  }
 
   return UserTable;
 };
