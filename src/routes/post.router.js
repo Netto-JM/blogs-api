@@ -4,6 +4,7 @@ const { authToken } = require('../middlewares/auth.middleware');
 
 const router = express.Router();
 
-router.get('/', authToken, postController.listPosts);
+router.get('/:id', authToken, postController.getPost)
+  .get('/', authToken, postController.listPosts);
 
 module.exports = router;
