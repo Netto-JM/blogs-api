@@ -6,7 +6,10 @@ const CategorySchema = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false,
     },
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
     {
       tableName: 'categories',

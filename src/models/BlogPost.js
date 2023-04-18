@@ -6,11 +6,26 @@ const BlogPostSchema = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false,
     },
-    title: DataTypes.STRING,
-    content: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    published: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updated: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   },
     {
       tableName: 'blog_posts',

@@ -3,10 +3,12 @@ const PostCategorySchema = (sequelize, DataTypes) => {
     postId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
     },
     categoryId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
     },
   },
     {
